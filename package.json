@@ -1,0 +1,44 @@
+{
+  "name": "app-theme",
+  "version": "1.0.0",
+  "description": "React components for app development",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "start-storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Giacomo 'Mr. Wolf' Furlan",
+  "license": "ISC",
+  "dependencies": {
+    "@types/classnames": "^2.2.9",
+    "classnames": "^2.2.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.7",
+    "@storybook/preset-scss": "^1.0.2",
+    "@storybook/preset-typescript": "^1.2.0",
+    "@storybook/react": "^5.2.8",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "fork-ts-checker-webpack-plugin": "^3.1.1",
+    "node-sass": "^4.13.0",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "sass-loader": "^8.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4"
+  }
+}
