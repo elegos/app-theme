@@ -11,7 +11,10 @@ export const Composed = (): React.ReactElement => <div>
         { name: 'Separator #1', isSeparator: true },
         { name: 'Sub - submenu', subElements: [{ name: 'Whatever' }] }
       ] },
-      { name: 'New Window' },
+      { name: 'New Window...', subElements: [
+        { name: 'Classic Window' },
+        { name: 'Fancy Window' },
+      ] },
       { name: 'Separator #1', isSeparator: true },
       { name: 'Open File...', onClick: () => alert('Open file') },
     ] },

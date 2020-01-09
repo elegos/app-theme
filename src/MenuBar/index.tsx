@@ -49,7 +49,7 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
     return () => {
       document.removeEventListener('click', onDocClick)
     }
-  })
+  }, [])
 
   return (
     <div className="MenuBar">
@@ -67,6 +67,7 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
                 <MenuElement
                   key={element.name}
                   element={element}
+                  parentPath={item.name}
                   onClick={() => !(element.subElements || []).length && setOpenedMenu('')}
                 />)
               )}
