@@ -39,7 +39,16 @@ $menuelements-min-width: 270px;
         flex-direction: column;
       }
 
+      &.side {
+        position: absolute;
+        top: -8px;
+        left: 100%;
+      }
+
       .MenuElement {
+        display: flex;
+        align-items: center;
+        position: relative;
         margin: 0 1px 8px;
         padding: 2px 20px;
 
@@ -49,6 +58,15 @@ $menuelements-min-width: 270px;
 
         &:hover, &:focus, &.open {
           background-color: $select-bold-background;
+        }
+
+        .ElementText {
+          flex-grow: 1;
+        }
+
+        .SubElementsCaret {
+          margin-right: -10px;
+          font-size: 1.1em;
         }
       }
 
