@@ -2,7 +2,16 @@ import React, { useState, useRef, useEffect } from 'react'
 import classnames from 'classnames'
 import { MdKeyboardArrowRight, MdCheck } from 'react-icons/md'
 
-import { menuCloseEvent, menuElementMouseEnterEvent, MenuElementMouseEnterDetail } from '../const'
+import {
+  menuCloseEvent,
+  menuElementMouseEnterEvent,
+  MenuElementMouseEnterDetail,
+  onGenericKeyDown,
+  Direction,
+  AllowedVDirection,
+  AllowedHDirection,
+  menuTopElementHorizontalEvent,
+} from '../const'
 import PolyCustomEvent from '../../polyfill/CustomEvent'
 
 export interface MenuElementDef {
@@ -19,51 +28,54 @@ export interface MenuElementDef {
 interface MenuElementProps {
   element: MenuElementDef
   parentPath: string
+  tabIndex?: number
 
   // see MenuElementDef.onClick
-  onClick?: (event: React.MouseEvent) => boolean|void
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => boolean|void
 }
 
 const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuElementProps) => {
-  const { onClick: onOuterClick, element, parentPath } = props
-  const { isSeparator, onClick } = element
+  const {
+    onClick: onOuterClick, element, parentPath, tabIndex,
+  } = props
+  const { onClick, isSeparator } = element
   const [isOpen, setOpen] = useState<boolean>(false)
   const [closeTimeout, setCloseTimeout] = useState<number>(-1)
   const selfRef = useRef<HTMLDivElement>(null)
 
-  const menuCloseListener = (event: CustomEvent) => {
-    setOpen(false)
-  }
-
-  const mouseEnterListener = (event: CustomEvent<MenuElementMouseEnterDetail>) => {
-    if (!isOpen) {
-      return
-    }
-
-    if (!new RegExp(`^${parentPath}.${element.name}`).test(event.detail.path)) {
-      clearTimeout(closeTimeout)
+  useEffect((): () => void => {
+    const menuCloseListener = (): void => {
       setOpen(false)
     }
-  }
 
-  useEffect(() => {
+    const mouseEnterListener = (event: CustomEvent<MenuElementMouseEnterDetail>): void => {
+      if (!isOpen) {
+        return
+      }
+
+      if (!new RegExp(`^${parentPath}.${element.name}`).test(event.detail.path)) {
+        clearTimeout(closeTimeout)
+        setOpen(false)
+      }
+    }
+
     document.addEventListener(menuCloseEvent, menuCloseListener as EventListener)
     document.addEventListener(menuElementMouseEnterEvent, mouseEnterListener as EventListener)
 
-    return () => {
+    return (): void => {
       document.removeEventListener(menuCloseEvent, menuCloseListener as EventListener)
       document.removeEventListener(menuElementMouseEnterEvent, mouseEnterListener as EventListener)
     }
-  }, [isOpen])
+  }, [closeTimeout, element.name, isOpen, parentPath])
 
-  const onClickWrapper = (event: React.MouseEvent) => {
+  const onClickWrapper = (event: React.MouseEvent | React.KeyboardEvent): void => {
     let keepOpen: boolean|void
 
     if (onOuterClick) {
       keepOpen = onOuterClick(event)
     }
 
-    if ((element.subElements || []).length === 0 && onClick) {
+    if (element.subElements?.length === 0 && onClick) {
       keepOpen = keepOpen || onClick(event)
     }
 
@@ -74,11 +86,16 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     event.stopPropagation()
   }
 
-  const onMouseEnter = () => {
+  const onMouseEnter = (): void => {
+    if (selfRef.current && document.activeElement !== selfRef.current) {
+      selfRef.current.focus()
+      return
+    }
+
     if (element.subElements && element.subElements.length) {
       document.dispatchEvent(PolyCustomEvent(
         menuElementMouseEnterEvent,
-        { detail: { path: `${parentPath}.${element.name}` }}
+        { detail: { path: `${parentPath}.${element.name}` } },
       ))
     }
 
@@ -89,7 +106,7 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     setOpen(true)
   }
 
-  const onMouseLeave = (event: React.MouseEvent) => {
+  const onMouseLeave = (event: React.MouseEvent | React.FocusEvent): void => {
     const relatedTarget: Element|null = event.relatedTarget as Element
     const isStillSelf = relatedTarget
       && relatedTarget.closest
@@ -101,28 +118,96 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     }
   }
 
+  const onKeyDownHorizontal = (direction: AllowedHDirection): void => {
+    let parentMenuElement = selfRef.current?.closest('.MenuElement')
+    parentMenuElement = parentMenuElement === selfRef.current ? null : parentMenuElement
+
+    // not in a sub-menu and direction is left, or there is no sub-menu
+    if (!parentMenuElement && (direction === Direction.Left || !element.subElements?.length)) {
+      selfRef.current?.closest('.MenuItem')?.dispatchEvent(PolyCustomEvent(
+        menuTopElementHorizontalEvent,
+        { detail: { direction } },
+      ))
+      return
+    }
+
+    if (direction === Direction.Right) {
+      const newFocus = selfRef.current?.querySelector('.MenuElements > .MenuElement');
+      (newFocus as HTMLElement)?.focus()
+
+      return
+    }
+    console.log('horizontal', element.subElements)
+  }
+
+  const onKeyDownVertical = (direction: AllowedVDirection, currentElement: HTMLElement): void => {
+    if (document.activeElement !== selfRef.current) {
+      return
+    }
+
+    const parent = currentElement.parentElement
+    let target: Node | null
+    let cycleElement: Node | null = currentElement as Node
+    do {
+      target = direction === Direction.Up
+        ? cycleElement.previousSibling
+        : cycleElement.nextSibling
+      cycleElement = target
+    } while (
+      cycleElement && (cycleElement as HTMLElement).classList.contains('Separator')
+      && parent && parent.childNodes.length > 1
+    )
+
+    if (!target) {
+      target = (direction === Direction.Up ? parent?.lastChild : parent?.firstChild) || null
+    }
+
+    if (target) {
+      (target as HTMLElement).focus()
+    }
+  }
+
+  const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (event.key === 'Enter') {
+      onClickWrapper(event)
+      return
+    }
+    onGenericKeyDown(onKeyDownHorizontal, onKeyDownVertical)(event)
+  }
+
   return isSeparator
     ? <hr className="Separator" />
-    : <div
-      ref={selfRef}
-      className="MenuElement"
-      onClick={onClickWrapper}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      {element.isChecked && <MdCheck className="SubElementsPre" />}
-      <span className="ElementText">{element.name}</span>
-      {(element.subElements || []).length > 0 && <MdKeyboardArrowRight className="SubElementsPost" />}
-      {(element.subElements || []).length === 0 && element.postText && <div className="SubElementsPost text">{element.postText}</div>}
-      <div className={classnames('MenuElements', 'side', { open: isOpen })}>
-        {(element.subElements || []).map((elem) => (
-          <MenuElement
-            key={elem.name}
-            parentPath={`${parentPath}.${element.name}`}
-            element={elem}
-          />)
-        )}
+    : (
+      <div
+        role="menuitem"
+        tabIndex={tabIndex}
+        ref={selfRef}
+        className="MenuElement"
+        onClick={onClickWrapper}
+        onKeyDown={onKeyDown}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onFocus={onMouseEnter}
+        onBlur={onMouseLeave}
+      >
+        {element.isChecked && <MdCheck className="SubElementsPre" />}
+        <span className="ElementText">{element.name}</span>
+        {(element.subElements || []).length > 0 && <MdKeyboardArrowRight className="SubElementsPost" />}
+        {
+          element.subElements?.length === 0
+          && element.postText
+          && <div className="SubElementsPost text">{element.postText}</div>
+        }
+        <div className={classnames('MenuElements', 'side', { open: isOpen })}>
+          {element.subElements?.map((elem) => (
+            <MenuElement
+              key={elem.name}
+              parentPath={`${parentPath}.${element.name}`}
+              element={elem}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    )
 }
 export default MenuElement

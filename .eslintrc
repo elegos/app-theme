@@ -15,10 +15,11 @@
   ],
   "rules": {
     "eol-last": "error",
+    "max-len": ["warn", 120],
     "@typescript-eslint/semi": ["error", "never"],
     "@typescript-eslint/member-delimiter-style": ["error", {
-      "multiline": { "delimiter": "none" },
-      "singleline": { "delimiter": "none" }
+      "multiline": { "delimiter": "none", "requireLast": true },
+      "singleline": { "delimiter": "semi", "requireLast": false }
     }]
   },
   "env": {

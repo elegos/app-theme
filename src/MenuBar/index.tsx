@@ -1,87 +1,90 @@
-import React, { ReactElement, useState, useEffect, DOMElement } from 'react'
-import classnames from 'classnames'
-
-import MenuElement, { MenuElementDef } from './MenuElement'
+import React, {
+  ReactElement, useState, useEffect,
+} from 'react'
 
 import './MenuBar.scss'
-import { menuCloseEvent } from './const'
 
-interface MenuItem {
-  name: string
-  elements?: MenuElementDef[]
-}
+import { menuCloseEvent } from './const'
+import MenuTopElement, { MenuItem } from './MenuTopElement'
 
 interface MenuProps {
   elements: MenuItem[]
 }
 
 const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactElement => {
-  const [openedMenu, setOpenedMenu] = useState<string>('')
-  const onMenuClick = (menuItemName: string) => (event: React.MouseEvent) => {
-    const target = event.target as HTMLElement
-    if (!target.classList.contains('MenuItem')) {
-      return
-    }
+  const { elements } = props
+  const [currentMenuIndex, setCurrentMenuIndex] = useState<number>(-1)
 
-    let newOpened = ''
-    if (openedMenu !== menuItemName) {
-      newOpened = menuItemName
-    }
+  // const onMenuClick = (menuItemName: string) => (event: React.MouseEvent): void => {
+  //   const target = event.target as HTMLElement
+  //   if (!target.classList.contains('MenuItem')) {
+  //     return
+  //   }
 
-    setOpenedMenu(newOpened)
-  }
+  //   let newOpened = ''
+  //   if (openedMenu !== menuItemName) {
+  //     newOpened = menuItemName
+  //   }
 
-  const onMenuEnter = (menuItemName: string) => () => {
-    if (!!openedMenu && openedMenu !== menuItemName) {
-      setOpenedMenu(menuItemName)
-    }
-  }
+  //   setOpenedMenu(newOpened)
+  // }
+
+  // const onMenuEnter = (menuItemName: string) => (): void => {
+  //   if (!!openedMenu && openedMenu !== menuItemName) {
+  //     setOpenedMenu(menuItemName)
+  //   }
+  // }
+
+  // const onKeyDownVertical = (direction: AllowedVDirection, currentElement: HTMLElement): void => {
+  //   const container = currentElement.querySelector('.MenuElements')
+  //   const target = direction === Direction.Up ? container?.lastChild : container?.firstChild
+
+  //   if (target) {
+  //     (target as HTMLElement).focus()
+  //   }
+  // }
+
+  // const onKeyDown = onGenericKeyDown(onKeyDownHorizontal, onKeyDownVertical)
 
   useEffect(() => {
-    const onMenuClose = (event: CustomEvent) => {
-      setOpenedMenu('')
+    const onMenuClose = (): void => {
+      setCurrentMenuIndex(-1)
     }
 
-    const onDocClick = (event: MouseEvent) => {
+    const onDocClick = (event: MouseEvent): void => {
       const target = event.target as HTMLElement
       if (!target.closest('.MenuItem')) {
-        setOpenedMenu('')
+        setCurrentMenuIndex(-1)
       }
     }
 
     document.addEventListener(menuCloseEvent, onMenuClose as EventListener)
     document.addEventListener('click', onDocClick)
 
-    return () => {
+    return (): void => {
       document.removeEventListener(menuCloseEvent, onMenuClose as EventListener)
       document.removeEventListener('click', onDocClick)
     }
   }, [])
 
+  const changeMenuIndex = (index: number): void => {
+    if (currentMenuIndex === index) {
+      return
+    }
+
+    setCurrentMenuIndex(index)
+  }
+
   return (
     <div className="MenuBar">
-      {props.elements.map((item) => {
-        return (
-          <div
-            className={classnames('MenuItem', { open: item.name === openedMenu })}
-            onClick={onMenuClick(item.name)}
-            onMouseEnter={onMenuEnter(item.name)}
-            key={item.name}
-          >
-            {item.name}
-            <div className={classnames('MenuElements', { open: item.name === openedMenu})}>
-              {(item.elements || []).map((element) => (
-                <MenuElement
-                  key={element.name}
-                  element={element}
-                  parentPath={item.name}
-                  onClick={() => !(element.subElements || []).length && setOpenedMenu('')}
-                />)
-              )}
-            </div>
-          </div>
-        )
-      })}
+      {elements.map((item, index) => (
+        <MenuTopElement
+          menu={item}
+          tabIndex={index}
+          currentMenuIndex={currentMenuIndex}
+          changeMenuIndex={changeMenuIndex}
+        />
+      ))}
     </div>
   )
 }

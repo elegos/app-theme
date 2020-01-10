@@ -11,6 +11,10 @@ $menuelements-min-width: 270px;
   background-color: $main-background;
   color: $off-white;
 
+  &:focus {
+    outline: none;
+  }
+
   .MenuItem {
     position: relative;
     display: flex;
@@ -23,6 +27,10 @@ $menuelements-min-width: 270px;
     &:hover, &:focus, &.open {
       color: $off-white-solid;
       background-color: $main-background-bright;
+    }
+
+    &:focus {
+      outline: none;
     }
 
     .MenuElements {
@@ -43,6 +51,10 @@ $menuelements-min-width: 270px;
         position: absolute;
         top: -8px;
         left: 100%;
+      }
+
+      &:focus {
+        outline: none;
       }
 
       .MenuElement {
@@ -79,6 +91,10 @@ $menuelements-min-width: 270px;
           &.text {
             font-size: 1em;
           }
+        }
+
+        &:focus {
+          outline: none;
         }
       }
 
