@@ -1,22 +1,28 @@
 import React, { useState, useRef, useEffect } from 'react'
 import classnames from 'classnames'
-import { MdKeyboardArrowRight } from 'react-icons/md'
+import { MdKeyboardArrowRight, MdCheck } from 'react-icons/md'
+
+import { menuCloseEvent, menuElementMouseEnterEvent, MenuElementMouseEnterDetail } from '../const'
+import PolyCustomEvent from '../../polyfill/CustomEvent'
 
 export interface MenuElementDef {
   name: string
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void  
   subElements?: MenuElementDef[]
   isChecked?: boolean
+  postText?: string
   isSeparator?: boolean
+
+  // onClick: if return true, will prevent the menu to close
+  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => boolean|void
 }
 
 interface MenuElementProps {
   element: MenuElementDef
   parentPath: string
-  onClick?: (event: React.MouseEvent) => void
-}
 
-const menuElementMouseEnterEvent = 'app-theme.MenuBar.MenuElement.MouseEnter'
+  // see MenuElementDef.onClick
+  onClick?: (event: React.MouseEvent) => boolean|void
+}
 
 const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuElementProps) => {
   const { onClick: onOuterClick, element, parentPath } = props
@@ -25,7 +31,11 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   const [closeTimeout, setCloseTimeout] = useState<number>(-1)
   const selfRef = useRef<HTMLDivElement>(null)
 
-  const listener = (event: CustomEvent) => {
+  const menuCloseListener = (event: CustomEvent) => {
+    setOpen(false)
+  }
+
+  const mouseEnterListener = (event: CustomEvent<MenuElementMouseEnterDetail>) => {
     if (!isOpen) {
       return
     }
@@ -37,25 +47,36 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   }
 
   useEffect(() => {
-    document.addEventListener(menuElementMouseEnterEvent, listener as EventListener)
+    document.addEventListener(menuCloseEvent, menuCloseListener as EventListener)
+    document.addEventListener(menuElementMouseEnterEvent, mouseEnterListener as EventListener)
+
     return () => {
-      document.removeEventListener(menuElementMouseEnterEvent, listener as EventListener)
+      document.removeEventListener(menuCloseEvent, menuCloseListener as EventListener)
+      document.removeEventListener(menuElementMouseEnterEvent, mouseEnterListener as EventListener)
     }
   }, [isOpen])
 
   const onClickWrapper = (event: React.MouseEvent) => {
+    let keepOpen: boolean|void
+
     if (onOuterClick) {
-      onOuterClick(event)
+      keepOpen = onOuterClick(event)
     }
 
-    if (onClick) {
-      onClick(event)
+    if ((element.subElements || []).length === 0 && onClick) {
+      keepOpen = keepOpen || onClick(event)
     }
+
+    if (!keepOpen) {
+      document.dispatchEvent(PolyCustomEvent(menuCloseEvent, {}))
+    }
+
+    event.stopPropagation()
   }
 
   const onMouseEnter = () => {
     if (element.subElements && element.subElements.length) {
-      document.dispatchEvent(new CustomEvent(
+      document.dispatchEvent(PolyCustomEvent(
         menuElementMouseEnterEvent,
         { detail: { path: `${parentPath}.${element.name}` }}
       ))
@@ -89,15 +110,16 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      {element.isChecked && <MdCheck className="SubElementsPre" />}
       <span className="ElementText">{element.name}</span>
-      {(element.subElements || []).length > 0 && <MdKeyboardArrowRight className="SubElementsCaret" />}
+      {(element.subElements || []).length > 0 && <MdKeyboardArrowRight className="SubElementsPost" />}
+      {(element.subElements || []).length === 0 && element.postText && <div className="SubElementsPost text">{element.postText}</div>}
       <div className={classnames('MenuElements', 'side', { open: isOpen })}>
         {(element.subElements || []).map((elem) => (
           <MenuElement
             key={elem.name}
             parentPath={`${parentPath}.${element.name}`}
             element={elem}
-            onClick={() => alert('click!')}
           />)
         )}
       </div>

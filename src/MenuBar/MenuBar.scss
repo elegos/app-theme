@@ -64,9 +64,21 @@ $menuelements-min-width: 270px;
           flex-grow: 1;
         }
 
-        .SubElementsCaret {
-          margin-right: -10px;
+        .SubElementsPre, .SubElementsPost {
           font-size: 1.1em;
+        }
+
+        .SubElementsPre {
+          margin-left: -1.1em;
+          margin-right: 2px;
+        }
+
+        .SubElementsPost {
+          margin-right: -10px;
+
+          &.text {
+            font-size: 1em;
+          }
         }
       }
 
