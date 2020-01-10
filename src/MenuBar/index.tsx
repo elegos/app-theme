@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import MenuElement, { MenuElementDef } from './MenuElement'
 
 import './MenuBar.scss'
+import { menuCloseEvent } from './const'
 
 interface MenuItem {
   name: string
@@ -37,6 +38,10 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
   }
 
   useEffect(() => {
+    const onMenuClose = (event: CustomEvent) => {
+      setOpenedMenu('')
+    }
+
     const onDocClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement
       if (!target.closest('.MenuItem')) {
@@ -44,9 +49,11 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
       }
     }
 
+    document.addEventListener(menuCloseEvent, onMenuClose as EventListener)
     document.addEventListener('click', onDocClick)
 
     return () => {
+      document.removeEventListener(menuCloseEvent, onMenuClose as EventListener)
       document.removeEventListener('click', onDocClick)
     }
   }, [])
