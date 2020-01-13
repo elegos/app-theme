@@ -34,6 +34,20 @@ interface MenuElementProps {
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => boolean|void
 }
 
+const checkElementNotContainedBy = (elem: HTMLElement, container: HTMLElement|null): boolean => {
+  if (!container) {
+    return false
+  }
+
+  if (elem === container) {
+    return true
+  }
+
+  const parent = elem.parentElement
+
+  return !parent ? false : checkElementNotContainedBy(parent, container)
+}
+
 const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuElementProps) => {
   const {
     onClick: onOuterClick, element, parentPath, tabIndex,
@@ -42,6 +56,7 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   const [isOpen, setOpen] = useState<boolean>(false)
   const [closeTimeout, setCloseTimeout] = useState<number>(-1)
   const selfRef = useRef<HTMLDivElement>(null)
+  const ownPath = `${parentPath}.${element.name}`
 
   useEffect((): () => void => {
     const menuCloseListener = (): void => {
@@ -49,14 +64,19 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     }
 
     const mouseEnterListener = (event: CustomEvent<MenuElementMouseEnterDetail>): void => {
-      if (!isOpen) {
+      if (!isOpen || !element.subElements?.length) {
         return
       }
 
-      if (!new RegExp(`^${parentPath}.${element.name}`).test(event.detail.path)) {
+      if (!event.detail.path.startsWith(ownPath)) {
         clearTimeout(closeTimeout)
         setOpen(false)
+
+        return
       }
+
+      clearTimeout(closeTimeout)
+      setOpen(true)
     }
 
     document.addEventListener(menuCloseEvent, menuCloseListener as EventListener)
@@ -66,7 +86,7 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
       document.removeEventListener(menuCloseEvent, menuCloseListener as EventListener)
       document.removeEventListener(menuElementMouseEnterEvent, mouseEnterListener as EventListener)
     }
-  }, [closeTimeout, element.name, isOpen, parentPath])
+  }, [closeTimeout, element.subElements, isOpen, ownPath])
 
   const onClickWrapper = (event: React.MouseEvent | React.KeyboardEvent): void => {
     let keepOpen: boolean|void
@@ -86,7 +106,9 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     event.stopPropagation()
   }
 
-  const onMouseEnter = (): void => {
+  const onMouseEnter = (event: React.MouseEvent | React.FocusEvent): void => {
+    event.stopPropagation()
+
     if (selfRef.current && document.activeElement !== selfRef.current) {
       selfRef.current.focus()
       return
@@ -95,7 +117,7 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     if (element.subElements && element.subElements.length) {
       document.dispatchEvent(PolyCustomEvent(
         menuElementMouseEnterEvent,
-        { detail: { path: `${parentPath}.${element.name}` } },
+        { detail: { path: ownPath } },
       ))
     }
 
@@ -107,10 +129,19 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   }
 
   const onMouseLeave = (event: React.MouseEvent | React.FocusEvent): void => {
+    if (!isOpen) {
+      clearTimeout(closeTimeout)
+      return
+    }
+
     const relatedTarget: Element|null = event.relatedTarget as Element
     const isStillSelf = relatedTarget
-      && relatedTarget.closest
-      && relatedTarget.closest('MenuElement') === selfRef.current
+      && (
+        (
+          relatedTarget.closest
+          && relatedTarget.closest('MenuElement') === selfRef.current
+        ) || checkElementNotContainedBy(relatedTarget as HTMLElement, selfRef.current as HTMLElement)
+      )
 
     if (!isStillSelf) {
       clearTimeout(closeTimeout)
@@ -119,8 +150,7 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   }
 
   const onKeyDownHorizontal = (direction: AllowedHDirection): void => {
-    let parentMenuElement = selfRef.current?.closest('.MenuElement')
-    parentMenuElement = parentMenuElement === selfRef.current ? null : parentMenuElement
+    const parentMenuElement = selfRef.current?.parentElement?.closest('.MenuElement') as HTMLElement
 
     // not in a sub-menu and direction is left, or there is no sub-menu
     if (!parentMenuElement && (direction === Direction.Left || !element.subElements?.length)) {
@@ -137,7 +167,8 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
 
       return
     }
-    console.log('horizontal', element.subElements)
+
+    parentMenuElement?.focus()
   }
 
   const onKeyDownVertical = (direction: AllowedVDirection, currentElement: HTMLElement): void => {
@@ -158,8 +189,9 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
       && parent && parent.childNodes.length > 1
     )
 
-    if (!target) {
-      target = (direction === Direction.Up ? parent?.lastChild : parent?.firstChild) || null
+    if (!target && direction === Direction.Up) {
+      (selfRef.current?.closest('.MenuItem') as HTMLElement)?.focus()
+      return
     }
 
     if (target) {
@@ -199,11 +231,12 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
           && <div className="SubElementsPost text">{element.postText}</div>
         }
         <div className={classnames('MenuElements', 'side', { open: isOpen })}>
-          {element.subElements?.map((elem) => (
+          {element.subElements?.map((elem, i) => (
             <MenuElement
               key={elem.name}
-              parentPath={`${parentPath}.${element.name}`}
+              parentPath={ownPath}
               element={elem}
+              tabIndex={(tabIndex || 0) + 1 + i}
             />
           ))}
         </div>

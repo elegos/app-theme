@@ -40,17 +40,7 @@ const MenuTopElement: React.FunctionComponent<MenuTopElementProps> = (props: Men
 
     const listener = (event: CustomEvent<MenuTopElementHorizontalDetail>): void => {
       const { direction } = event.detail
-      let target = direction === Direction.Right ? myself.nextSibling : myself.previousSibling
-      if (!target) {
-        const parent = myself.parentElement
-        if (parent) {
-          target = (
-            direction === Direction.Right
-              ? parent.firstChild
-              : parent.lastChild
-          ) || null
-        }
-      }
+      const target = direction === Direction.Right ? myself.nextSibling : myself.previousSibling;
 
       (target as HTMLElement)?.focus()
     }
@@ -91,26 +81,24 @@ const MenuTopElement: React.FunctionComponent<MenuTopElementProps> = (props: Men
 
       const htmlElement = selfRef.current as unknown as HTMLDivElement
 
-      let sibling = direction === Direction.Right ? htmlElement.nextSibling : htmlElement.previousSibling
+      const sibling = direction === Direction.Right ? htmlElement.nextSibling : htmlElement.previousSibling
       if (!sibling) {
-        const { parentNode } = htmlElement
-        sibling = (direction === Direction.Right ? parentNode?.firstChild : parentNode?.lastChild) || null
-      }
-
-      if (sibling) {
-        (sibling as HTMLElement).focus()
-        changeMenuIndex((sibling as HTMLElement).tabIndex)
-      }
-    },
-    (direction: AllowedVDirection) => {
-      if (document.activeElement !== selfRef.current) {
         return
       }
 
-      const htmlElement = selfRef.current as unknown as HTMLDivElement
-      const target = htmlElement.querySelector(`.MenuElement:${
-        direction === Direction.Up ? 'last-child' : 'first-child'
-      }`) as HTMLElement
+      (sibling as HTMLElement).focus()
+      changeMenuIndex((sibling as HTMLElement).tabIndex)
+    },
+    (direction: AllowedVDirection) => {
+      if (
+        direction === Direction.Up
+        || !selfRef.current
+        || document.activeElement !== selfRef.current
+      ) {
+        return
+      }
+
+      const target = document.querySelector('.MenuItem.open .MenuElement') as HTMLElement
 
       target?.focus()
     },

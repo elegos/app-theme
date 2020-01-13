@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook",
+    "storybook-build": "build-storybook -c .storybook -o build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Giacomo 'Mr. Wolf' Furlan",
@@ -21,6 +22,7 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.7",
+    "@storybook/addon-docs": "^5.3.1",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.2.8",
@@ -28,6 +30,7 @@
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-typescript-to-proptypes": "^1.1.0",
     "css-loader": "^3.4.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^6.3.1",

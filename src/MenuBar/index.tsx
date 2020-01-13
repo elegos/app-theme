@@ -79,6 +79,7 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
     <div className="MenuBar">
       {elements.map((item, index) => (
         <MenuTopElement
+          key={item.name}
           menu={item}
           tabIndex={index}
           currentMenuIndex={currentMenuIndex}
