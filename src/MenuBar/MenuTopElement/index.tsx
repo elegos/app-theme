@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-import MenuElement, { MenuElementDef } from '../MenuElement'
+import MenuElement, { MenuElementDef, MenuElementProps } from '../MenuElement'
 import {
   onGenericKeyDown,
   Direction,
@@ -58,6 +59,12 @@ const MenuTopElement: React.FunctionComponent<MenuTopElementProps> = (props: Men
       target !== selfRef.current
       || !target.classList.contains('MenuItem')
     ) {
+      return
+    }
+
+    if (tabIndex === currentMenuIndex) {
+      changeMenuIndex(-1)
+
       return
     }
 
@@ -129,6 +136,18 @@ const MenuTopElement: React.FunctionComponent<MenuTopElementProps> = (props: Men
       </div>
     </div>
   )
+}
+
+export const MenuItemProps = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  elements: PropTypes.arrayOf(MenuElementProps),
+})
+
+MenuTopElement.propTypes = {
+  tabIndex: PropTypes.number.isRequired,
+  currentMenuIndex: PropTypes.number.isRequired,
+  menu: MenuItemProps.isRequired,
+  changeMenuIndex: PropTypes.func.isRequired,
 }
 
 export default MenuTopElement

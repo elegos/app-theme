@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { MdKeyboardArrowRight, MdCheck } from 'react-icons/md'
 
@@ -95,8 +96,9 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
       keepOpen = onOuterClick(event)
     }
 
-    if (element.subElements?.length === 0 && onClick) {
-      keepOpen = keepOpen || onClick(event)
+    if (!element.subElements?.length && onClick) {
+      const onClickResult = onClick(event)
+      keepOpen = keepOpen || onClickResult
     }
 
     if (!keepOpen) {
@@ -244,3 +246,18 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
     )
 }
 export default MenuElement
+
+const MenuElementProps = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  isChecked: PropTypes.bool,
+  postText: PropTypes.string,
+  isSeparator: PropTypes.bool,
+  subElements: PropTypes.array,
+  onClick: PropTypes.func,
+})
+
+// eslint-disable-next-line
+// @ts-ignore
+MenuElementProps.subElements = PropTypes.arrayOf(MenuElementProps)
+
+export { MenuElementProps }

@@ -1,11 +1,12 @@
 import React, {
   ReactElement, useState, useEffect,
 } from 'react'
+import PropTypes from 'prop-types'
 
 import './MenuBar.scss'
 
 import { menuCloseEvent } from './const'
-import MenuTopElement, { MenuItem } from './MenuTopElement'
+import MenuTopElement, { MenuItem, MenuItemProps } from './MenuTopElement'
 
 interface MenuProps {
   elements: MenuItem[]
@@ -14,37 +15,6 @@ interface MenuProps {
 const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactElement => {
   const { elements } = props
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number>(-1)
-
-  // const onMenuClick = (menuItemName: string) => (event: React.MouseEvent): void => {
-  //   const target = event.target as HTMLElement
-  //   if (!target.classList.contains('MenuItem')) {
-  //     return
-  //   }
-
-  //   let newOpened = ''
-  //   if (openedMenu !== menuItemName) {
-  //     newOpened = menuItemName
-  //   }
-
-  //   setOpenedMenu(newOpened)
-  // }
-
-  // const onMenuEnter = (menuItemName: string) => (): void => {
-  //   if (!!openedMenu && openedMenu !== menuItemName) {
-  //     setOpenedMenu(menuItemName)
-  //   }
-  // }
-
-  // const onKeyDownVertical = (direction: AllowedVDirection, currentElement: HTMLElement): void => {
-  //   const container = currentElement.querySelector('.MenuElements')
-  //   const target = direction === Direction.Up ? container?.lastChild : container?.firstChild
-
-  //   if (target) {
-  //     (target as HTMLElement).focus()
-  //   }
-  // }
-
-  // const onKeyDown = onGenericKeyDown(onKeyDownHorizontal, onKeyDownVertical)
 
   useEffect(() => {
     const onMenuClose = (): void => {
@@ -88,6 +58,15 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
       ))}
     </div>
   )
+}
+
+// eslint-disable-next-line
+// @ts-ignore
+MenuBar.propTypes = {
+  // eslint-disable-next-line
+  elements: PropTypes.arrayOf(MenuItemProps).isRequired,
+  // @tts-ignore
+  // elements: PropTypes.arrayOf(PropTypes.shape(MenuItemProps)).isRequired,
 }
 
 export default MenuBar

@@ -1,0 +1,51 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks'
+import MenuBar from '.'
+
+<Meta title="Components" component={MenuBar} />
+
+# MenuBar
+`MenuBar` is the top-most element of an application. It contains the application's menues, like File, Edit etc.
+
+<Preview>
+  <Story name="MenuBar">
+    <div>
+      <MenuBar elements={[
+        {
+          name: 'File',
+          elements: [
+            { name: 'New File', postText: 'Ctrl+N' },
+            { name: 'Separator #1', isSeparator: true },
+            { name: 'Open File', postText: 'Ctrl+O' },
+            {
+              name: 'Open Recent...',
+              postText: 'Ctrl+O',
+              subElements: [
+                { name: '/home/user/docs/file1.txt', onClick: () => alert('file 1') },
+                { name: '/home/user/docs/file2.txt', onClick: () => alert('file 2') },
+                { name: '/home/user/docs/file3.txt (keep menu open)', onClick: () => alert('file 3') || true },
+              ]
+            },
+            { name: 'Separator #2', isSeparator: true },
+            { name: 'Save', postText: 'Ctrl+S' },
+            { name: 'Separator #3', isSeparator: true },
+            { name: 'Exit', postText: 'Ctrl+Q' },
+          ]
+        },
+        {
+          name: 'Edit',
+          elements: [
+            { name: 'Undo', postText: 'Ctrl+Z' },
+            { name: 'Redo', postText: 'Ctrl+Y'},
+            { name: 'Separator #1', isSeparator: true },
+            { name: 'Cut', postText: 'Ctrl+X'},
+            { name: 'Copy', postText: 'Ctrl+C'},
+            { name: 'Paste', postText: 'Ctrl+V'},
+          ]
+        }
+      ]} />
+      <div style={{ height: 200 }}>&nbsp;</div>
+    </div>
+  </Story>
+</Preview>
+
+<Props of={MenuBar} />
