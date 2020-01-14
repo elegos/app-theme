@@ -1,9 +1,14 @@
 import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks'
+
 import MenuBar from '.'
+import MenuTopElement from './MenuTopElement'
+import MenuElement from './MenuElement'
 
 <Meta title="Components" component={MenuBar} />
 
 # MenuBar
+#### `import { MenuBar } from app-theme`
+
 `MenuBar` is the top-most element of an application. It contains the application's menues, like File, Edit etc.
 
 <Preview>
@@ -48,4 +53,53 @@ import MenuBar from '.'
   </Story>
 </Preview>
 
+### MenuBar props
 <Props of={MenuBar} />
+
+#### MenuItem interface
+```typescript
+  interface MenuItem {
+    /**
+    * The display name
+    */
+    name: string
+    /**
+    * The menu's entries
+    */
+    elements?: MenuElementDef[]
+  }
+```
+
+#### MenuElementDef interface
+```typescript
+  interface MenuElementDef {
+    /**
+     * The element's name. Must be unique per menu.
+     */
+    name: string
+    /**
+     * The element's sub-elements
+     */
+    subElements?: MenuElementDef[]
+    /**
+     * Whether a tick should appear on the left (switch element)
+     */
+    isChecked?: boolean
+    /**
+     * Arbitrary text to be placed to the right of the element's text
+     */
+    postText?: string
+    /**
+     * If the element is a separator. If true, it won't render
+     * eventual subElements nor show the tick on the left
+     * or the text on the right
+     */
+    isSeparator?: boolean
+
+    /**
+     * If it returns true, it will prevent the menu to close
+     * upon pressing [enter] or clicking on the element
+     */
+    onClick?: (event: React.MouseEvent | React.KeyboardEvent) => boolean|void
+  }
+```

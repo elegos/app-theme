@@ -8,10 +8,18 @@ import './MenuBar.scss'
 import { menuCloseEvent } from './const'
 import MenuTopElement, { MenuItem, MenuItemProps } from './MenuTopElement'
 
-interface MenuProps {
+export interface MenuProps {
+  /**
+   * The menu items
+   */
   elements: MenuItem[]
 }
 
+/**
+ * MenuBar
+ * The menu entrypoint. It requires the menu structure as a prop.
+ * @param props the props to build the menu
+ */
 const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactElement => {
   const { elements } = props
   const [currentMenuIndex, setCurrentMenuIndex] = useState<number>(-1)

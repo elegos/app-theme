@@ -16,13 +16,33 @@ import {
 import PolyCustomEvent from '../../polyfill/CustomEvent'
 
 export interface MenuElementDef {
+  /**
+   * The element's name. Must be unique per menu.
+   */
   name: string
+  /**
+   * The element's sub-elements
+   */
   subElements?: MenuElementDef[]
+  /**
+   * Whether a tick should appear on the left (switch element)
+   */
   isChecked?: boolean
+  /**
+   * Arbitrary text to be placed to the right of the element's text
+   */
   postText?: string
+  /**
+   * If the element is a separator. If true, it won't render
+   * eventual subElements nor show the tick on the left
+   * or the text on the right
+   */
   isSeparator?: boolean
 
-  // onClick: if return true, will prevent the menu to close
+  /**
+   * If it returns true, it will prevent the menu to close
+   * upon pressing [enter] or clicking on the element
+   */
   onClick?: (event: React.MouseEvent | React.KeyboardEvent) => boolean|void
 }
 

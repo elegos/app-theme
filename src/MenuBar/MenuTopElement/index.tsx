@@ -13,7 +13,13 @@ import {
 } from '../const'
 
 export interface MenuItem {
+  /**
+   * The display name
+   */
   name: string
+  /**
+   * The menu's entries
+   */
   elements?: MenuElementDef[]
 }
 

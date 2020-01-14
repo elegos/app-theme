@@ -4,8 +4,9 @@
   "description": "React components for app development",
   "main": "index.js",
   "scripts": {
+    "build": "ttsc",
     "storybook": "start-storybook",
-    "storybook-build": "build-storybook -c .storybook -o build",
+    "storybook-build": "build-storybook -c .storybook -o storybook",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Giacomo 'Mr. Wolf' Furlan",
@@ -19,19 +20,16 @@
     "react-icons": "^3.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.7",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "@storybook/addon-docs": "^5.3.1",
     "@storybook/preset-scss": "^1.0.2",
-    "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.2.8",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-typescript-to-proptypes": "^1.1.0",
     "css-loader": "^3.4.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^6.3.1",
@@ -44,6 +42,7 @@
     "react-docgen-typescript-loader": "^3.6.0",
     "sass-loader": "^8.0.0",
     "ts-loader": "^6.2.1",
+    "ttypescript": "^1.5.10",
     "typescript": "^3.7.4"
   }
 }
