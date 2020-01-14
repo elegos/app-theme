@@ -1,7 +1,9 @@
-import MenuBar from './MenuBar'
+import components from './components'
 
-export { MenuBar }
+export {
+  components,
+}
 
 export default {
-  MenuBar,
+  components,
 }

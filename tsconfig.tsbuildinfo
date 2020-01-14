@@ -1,0 +1,590 @@
+{
+  "program": {
+    "fileInfos": {
+      "./node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "fc43680ad3a1a4ec8c7b8d908af1ec9ddff87845346de5f02c735c9171fa98ea",
+        "signature": "fc43680ad3a1a4ec8c7b8d908af1ec9ddff87845346de5f02c735c9171fa98ea"
+      },
+      "./node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
+        "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
+      },
+      "./node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
+        "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
+      },
+      "./node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
+        "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
+      },
+      "./node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "9c67dcc7ca897b61f58d57d487bc9f07950546e5ac8701cbc41a8a4fec48b091",
+        "signature": "9c67dcc7ca897b61f58d57d487bc9f07950546e5ac8701cbc41a8a4fec48b091"
+      },
+      "./node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "d93de5e8a7275cb9d47481410e13b3b1debb997e216490954b5d106e37e086de",
+        "signature": "d93de5e8a7275cb9d47481410e13b3b1debb997e216490954b5d106e37e086de"
+      },
+      "./node_modules/typescript/lib/lib.dom.iterable.d.ts": {
+        "version": "8329c3401aa8708426c7760f14219170f69a2cb77e4519758cec6f5027270faf",
+        "signature": "8329c3401aa8708426c7760f14219170f69a2cb77e4519758cec6f5027270faf"
+      },
+      "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
+        "signature": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b"
+      },
+      "./node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9",
+        "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
+      },
+      "./node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "734ddc145e147fbcd55f07d034f50ccff1086f5a880107665ec326fb368876f6",
+        "signature": "734ddc145e147fbcd55f07d034f50ccff1086f5a880107665ec326fb368876f6"
+      },
+      "./node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "4a0862a21f4700de873db3b916f70e41570e2f558da77d2087c9490f5a0615d8",
+        "signature": "4a0862a21f4700de873db3b916f70e41570e2f558da77d2087c9490f5a0615d8"
+      },
+      "./node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122",
+        "signature": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122"
+      },
+      "./node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210",
+        "signature": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210"
+      },
+      "./node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "d4deaafbb18680e3143e8b471acd650ed6f72a408a33137f0a0dd104fbe7f8ca",
+        "signature": "d4deaafbb18680e3143e8b471acd650ed6f72a408a33137f0a0dd104fbe7f8ca"
+      },
+      "./node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
+        "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
+      },
+      "./node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
+        "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
+      },
+      "./node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
+        "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
+      },
+      "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
+        "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
+      },
+      "./node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
+        "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
+      },
+      "./node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "c2d60b2e558d44384e4704b00e6b3d154334721a911f094d3133c35f0917b408",
+        "signature": "c2d60b2e558d44384e4704b00e6b3d154334721a911f094d3133c35f0917b408"
+      },
+      "./node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
+        "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
+      },
+      "./node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
+        "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
+      },
+      "./node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
+        "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
+      },
+      "./node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
+        "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
+      },
+      "./node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": {
+        "version": "2958de3d25bfb0b5cdace0244e11c9637e5988920b99024db705a720ce6348e7",
+        "signature": "2958de3d25bfb0b5cdace0244e11c9637e5988920b99024db705a720ce6348e7"
+      },
+      "./node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "85085a0783532dc04b66894748dc4a49983b2fbccb0679b81356947021d7a215",
+        "signature": "85085a0783532dc04b66894748dc4a49983b2fbccb0679b81356947021d7a215"
+      },
+      "./node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "5494f46d3a8a0329d13ddc37f8759d5288760febb51c92336608d1c06bb18d29",
+        "signature": "5494f46d3a8a0329d13ddc37f8759d5288760febb51c92336608d1c06bb18d29"
+      },
+      "./node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62",
+        "signature": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62"
+      },
+      "./node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8",
+        "signature": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8"
+      },
+      "./node_modules/typescript/lib/lib.es2018.full.d.ts": {
+        "version": "5c771dbfab3a478efd78f456aa5fb48b90d562f5a7fca1501565b19a4c41b122",
+        "signature": "5c771dbfab3a478efd78f456aa5fb48b90d562f5a7fca1501565b19a4c41b122"
+      },
+      "./src/declaration.d.ts": {
+        "version": "55cba6851b2422d5ebd928451cdf48d9b7bbaf0b176615c4b431330c601d01c9",
+        "signature": "55cba6851b2422d5ebd928451cdf48d9b7bbaf0b176615c4b431330c601d01c9"
+      },
+      "./node_modules/@types/react/global.d.ts": {
+        "version": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc",
+        "signature": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc"
+      },
+      "./node_modules/csstype/index.d.ts": {
+        "version": "a849a53cf1d5a35db4ae42e8bef37b82e43c58a805356f45d1f08de2ab905ccc",
+        "signature": "a849a53cf1d5a35db4ae42e8bef37b82e43c58a805356f45d1f08de2ab905ccc"
+      },
+      "./node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad"
+      },
+      "./node_modules/@types/react/index.d.ts": {
+        "version": "9290135198d502d92bdae0051b10294d121e38ea9a9beb3f71654b6b4bdf6d1d",
+        "signature": "9290135198d502d92bdae0051b10294d121e38ea9a9beb3f71654b6b4bdf6d1d"
+      },
+      "./src/components/menubar/const.ts": {
+        "version": "0a9b75d7580c3b569309a18af720e9f2bb0eb37a5e6ad138e80531d7c34d176f",
+        "signature": "f59efeb33e185525e042f1b88e93903fa6dd494bd4e93d013fb8195a30729726"
+      },
+      "./node_modules/@types/classnames/types.d.ts": {
+        "version": "dc688638e386342faae164e68ac0205274b6731e70ac1a45921f3ce3aa083795",
+        "signature": "dc688638e386342faae164e68ac0205274b6731e70ac1a45921f3ce3aa083795"
+      },
+      "./node_modules/@types/classnames/index.d.ts": {
+        "version": "b16c6ab962274dc23b0c57aba4425c3265cc05ad84782b8db5a344df6ad0f8f1",
+        "signature": "b16c6ab962274dc23b0c57aba4425c3265cc05ad84782b8db5a344df6ad0f8f1"
+      },
+      "./node_modules/react-icons/lib/cjs/iconsmanifest.d.ts": {
+        "version": "9af0933b1aaaa6adc78a918c56929845c51a9d08f9c707165a9170acb2ca6ccb",
+        "signature": "9af0933b1aaaa6adc78a918c56929845c51a9d08f9c707165a9170acb2ca6ccb"
+      },
+      "./node_modules/react-icons/lib/cjs/iconbase.d.ts": {
+        "version": "2549ec9de97db0b737f827958cf6dbd08be95c444e070dac156930dcfe919cf7",
+        "signature": "2549ec9de97db0b737f827958cf6dbd08be95c444e070dac156930dcfe919cf7"
+      },
+      "./node_modules/react-icons/lib/cjs/iconcontext.d.ts": {
+        "version": "6460cd7020078dcaae752b71342a5d16df35f61f7404db53e5d176438f7880b1",
+        "signature": "6460cd7020078dcaae752b71342a5d16df35f61f7404db53e5d176438f7880b1"
+      },
+      "./node_modules/react-icons/lib/cjs/index.d.ts": {
+        "version": "66d5c68894bb2975727cd550b53cd6f9d99f7cb77cb0cbecdd4af1c9332b01dd",
+        "signature": "66d5c68894bb2975727cd550b53cd6f9d99f7cb77cb0cbecdd4af1c9332b01dd"
+      },
+      "./node_modules/react-icons/md/index.d.ts": {
+        "version": "f8d604686d3fdfce2eaafefbc7cef968e1a073ca14d5dbec39402fef2c9d1f82",
+        "signature": "f8d604686d3fdfce2eaafefbc7cef968e1a073ca14d5dbec39402fef2c9d1f82"
+      },
+      "./src/polyfill/customevent.ts": {
+        "version": "f1e6c62bed3a9549dc3a2dc00a337e6b9dec53f81c54208f91947581f79c93b8",
+        "signature": "d677a315dc84d49976a979834a13fb57029915a676c6398422da5f5da3e2182d"
+      },
+      "./src/components/menubar/menuelement/index.tsx": {
+        "version": "0479c22941bb8f390b49b59bca516b663280775f412f00ff6b509965e31f71e4",
+        "signature": "bea3a107f3fc4aaf664e4e3031d24f5943e238b34fd87def763d82cbdb1d848c"
+      },
+      "./src/components/menubar/menutopelement/index.tsx": {
+        "version": "c08aa559ee52e6a82a6effab274449633c3aaaba8d345b729c5698b8b13d2080",
+        "signature": "09a40259433163022fddff45c810a78f22f22ba8744ef14665a8f7cc97c6c438"
+      },
+      "./src/components/menubar/index.tsx": {
+        "version": "4d7c8e676040c2656b5de44aafb06a3647a1175e1d1f6b868abb08e28866dd66",
+        "signature": "ded7cba47abbae461de0a497b6c644facd9ed41e846e97cf48b541a162927779"
+      },
+      "./src/components/index.ts": {
+        "version": "d1505106edb56c6c06df596066bb7690f98f6c8dec87ba1c12ec4a6bd1ba03c9",
+        "signature": "25c378295d0bc571954453eff37ce5f339900732e5548024664251e87ebe0187"
+      },
+      "./src/index.ts": {
+        "version": "4cbee044ce3d62232fb027488ccf83d220456027f096121a603d83f3aab66735",
+        "signature": "dad77085cf94cd5da6814b9b76c8c349c9991889b8832448263d80ee424533b0"
+      },
+      "./src/polyfill/event.ts": {
+        "version": "2a77de007201b47d348b80f6c09a71a8831d29fa4a836a6a581eb807aa9b9f71",
+        "signature": "bb25bb1137dd74efa93bbb4ef4a98c1247f3a6c91f11efef96bac3c744686498"
+      },
+      "./node_modules/@types/babel-types/index.d.ts": {
+        "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
+        "signature": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27"
+      },
+      "./node_modules/@types/babylon/index.d.ts": {
+        "version": "e7ef01fb3213b1be13321648ac2612d60e9e2742e28fc2fcf68d27fb965a8d5c",
+        "signature": "e7ef01fb3213b1be13321648ac2612d60e9e2742e28fc2fcf68d27fb965a8d5c"
+      },
+      "./node_modules/@types/color-name/index.d.ts": {
+        "version": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e",
+        "signature": "f0cb4b3ab88193e3e51e9e2622e4c375955003f1f81239d72c5b7a95415dad3e"
+      },
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts": {
+        "version": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c",
+        "signature": "725d9be2fd48440256f4deb00649adffdbc5ecd282b09e89d4e200663792c34c"
+      },
+      "./node_modules/@types/history/domutils.d.ts": {
+        "version": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953",
+        "signature": "dc49082466ff7e61cfbaf146f106a59274dbb95f726ed1e22a54375f82992953"
+      },
+      "./node_modules/@types/history/createbrowserhistory.d.ts": {
+        "version": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d",
+        "signature": "9b7ecef2a99fc603b20ce8524a3459d260fa8b128f4dd71c8718e93ded32023d"
+      },
+      "./node_modules/@types/history/createhashhistory.d.ts": {
+        "version": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8",
+        "signature": "fe2cd61bbf91d54ff07a1cd0174dd9338c1fd3f6069ae2a6119136aef817a9c8"
+      },
+      "./node_modules/@types/history/creatememoryhistory.d.ts": {
+        "version": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0",
+        "signature": "9f96df319156b4debf90395c415c53f0080a4d9db97966fe69396760217413e0"
+      },
+      "./node_modules/@types/history/locationutils.d.ts": {
+        "version": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371",
+        "signature": "7c076b2d16b2254072943e10999e08a5a650e0c6621ba04a501fc9e3f03f7371"
+      },
+      "./node_modules/@types/history/pathutils.d.ts": {
+        "version": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c",
+        "signature": "bca166983a1b4bea5aff7ac14949ed25c065d0a006990136b75c3f4690c4e93c"
+      },
+      "./node_modules/@types/history/index.d.ts": {
+        "version": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82",
+        "signature": "577eb25bca27a3a4ddd46b57f28cd83211501bfbc4786bd65639b951f20cff82"
+      },
+      "./node_modules/@types/is-function/index.d.ts": {
+        "version": "11ef35fa1e8aef8229ce6b62ac1a6a0761d1d4bb4de1538bce6d10762a919139",
+        "signature": "11ef35fa1e8aef8229ce6b62ac1a6a0761d1d4bb4de1538bce6d10762a919139"
+      },
+      "./node_modules/@types/istanbul-lib-coverage/index.d.ts": {
+        "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
+        "signature": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd"
+      },
+      "./node_modules/@types/istanbul-lib-report/index.d.ts": {
+        "version": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2",
+        "signature": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2"
+      },
+      "./node_modules/@types/istanbul-reports/index.d.ts": {
+        "version": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b",
+        "signature": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b"
+      },
+      "./node_modules/@types/json-schema/index.d.ts": {
+        "version": "92bc43ea5584457c9325a3d5b2ce5af77df6d2653be7e4c2e9a626f89293c3c1",
+        "signature": "92bc43ea5584457c9325a3d5b2ce5af77df6d2653be7e4c2e9a626f89293c3c1"
+      },
+      "./node_modules/@types/parse-json/index.d.ts": {
+        "version": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b",
+        "signature": "2b8264b2fefd7367e0f20e2c04eed5d3038831fe00f5efbc110ff0131aab899b"
+      },
+      "./node_modules/@types/q/index.d.ts": {
+        "version": "57427a9a368f8f0ee4ce03c36a762e19166756b95ab688948b29be553b24a78a",
+        "signature": "57427a9a368f8f0ee4ce03c36a762e19166756b95ab688948b29be553b24a78a"
+      },
+      "./node_modules/@types/reach__router/index.d.ts": {
+        "version": "492118290d54d4c7f273d2e3d2d5e2e90de6ca446df3bfc905cf6480d38e6bcc",
+        "signature": "492118290d54d4c7f273d2e3d2d5e2e90de6ca446df3bfc905cf6480d38e6bcc"
+      },
+      "./node_modules/@types/react-dom/index.d.ts": {
+        "version": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92",
+        "signature": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92"
+      },
+      "./node_modules/@types/react-syntax-highlighter/index.d.ts": {
+        "version": "c6d8434b402c2a47c6d04d59030d9aad99d7fd02eebbb89d1ed5adb8d301299a",
+        "signature": "c6d8434b402c2a47c6d04d59030d9aad99d7fd02eebbb89d1ed5adb8d301299a"
+      },
+      "./node_modules/@types/react-textarea-autosize/index.d.ts": {
+        "version": "654bd884851f74a93fc2165c9d3d7ec9a6346c5c4ca8a00caa49868c72ad2363",
+        "signature": "654bd884851f74a93fc2165c9d3d7ec9a6346c5c4ca8a00caa49868c72ad2363"
+      },
+      "./node_modules/@types/stack-utils/index.d.ts": {
+        "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
+        "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49"
+      },
+      "./node_modules/@types/unist/index.d.ts": {
+        "version": "1320ee42b30487cceb6da9f230354fc34826111f76bf12f0ad76c717c12625b0",
+        "signature": "1320ee42b30487cceb6da9f230354fc34826111f76bf12f0ad76c717c12625b0"
+      },
+      "./node_modules/@types/webpack-env/index.d.ts": {
+        "version": "f2c969343d25c5fdd5f08445395e1cc25658d6e0b0ea3cf3b3cf5629cf6a64c7",
+        "signature": "f2c969343d25c5fdd5f08445395e1cc25658d6e0b0ea3cf3b3cf5629cf6a64c7"
+      },
+      "./node_modules/@types/yargs-parser/index.d.ts": {
+        "version": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c",
+        "signature": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c"
+      },
+      "./node_modules/@types/yargs/index.d.ts": {
+        "version": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6",
+        "signature": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6"
+      }
+    },
+    "options": {
+      "incremental": true,
+      "target": 5,
+      "module": 99,
+      "jsx": 2,
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "outDir": "./lib",
+      "rootDir": "./src",
+      "strict": true,
+      "moduleResolution": 2,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {
+      "./node_modules/@types/react/index.d.ts": [
+        "./node_modules/csstype/index.d.ts",
+        "./node_modules/@types/prop-types/index.d.ts",
+        "./node_modules/@types/react/global.d.ts"
+      ],
+      "./node_modules/@types/classnames/index.d.ts": [
+        "./node_modules/@types/classnames/types.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/iconbase.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/iconcontext.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/index.d.ts": [
+        "./node_modules/react-icons/lib/cjs/iconsmanifest.d.ts",
+        "./node_modules/react-icons/lib/cjs/iconbase.d.ts",
+        "./node_modules/react-icons/lib/cjs/iconcontext.d.ts"
+      ],
+      "./node_modules/react-icons/md/index.d.ts": [
+        "./node_modules/react-icons/lib/cjs/index.d.ts"
+      ],
+      "./src/components/menubar/menuelement/index.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/prop-types/index.d.ts",
+        "./node_modules/@types/classnames/index.d.ts",
+        "./node_modules/react-icons/md/index.d.ts",
+        "./src/components/menubar/const.ts",
+        "./src/polyfill/customevent.ts"
+      ],
+      "./src/components/menubar/menutopelement/index.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/prop-types/index.d.ts",
+        "./node_modules/@types/classnames/index.d.ts",
+        "./src/components/menubar/menuelement/index.tsx",
+        "./src/components/menubar/const.ts"
+      ],
+      "./src/components/menubar/index.tsx": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/prop-types/index.d.ts",
+        "./src/declaration.d.ts",
+        "./src/components/menubar/const.ts",
+        "./src/components/menubar/menutopelement/index.tsx"
+      ],
+      "./src/components/index.ts": [
+        "./src/components/menubar/index.tsx"
+      ],
+      "./src/index.ts": [
+        "./src/components/index.ts"
+      ],
+      "./node_modules/@types/babylon/index.d.ts": [
+        "./node_modules/@types/babel-types/index.d.ts"
+      ],
+      "./node_modules/@types/history/createbrowserhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/history/createhashhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/history/creatememoryhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/history/locationutils.d.ts": [
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/@types/history/pathutils.d.ts": [
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/@types/history/index.d.ts": [
+        "./node_modules/@types/history/createbrowserhistory.d.ts",
+        "./node_modules/@types/history/createhashhistory.d.ts",
+        "./node_modules/@types/history/creatememoryhistory.d.ts",
+        "./node_modules/@types/history/locationutils.d.ts",
+        "./node_modules/@types/history/pathutils.d.ts"
+      ],
+      "./node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "./node_modules/@types/istanbul-lib-coverage/index.d.ts"
+      ],
+      "./node_modules/@types/istanbul-reports/index.d.ts": [
+        "./node_modules/@types/istanbul-lib-report/index.d.ts",
+        "./node_modules/@types/istanbul-lib-coverage/index.d.ts"
+      ],
+      "./node_modules/@types/reach__router/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/@types/react-dom/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/react-syntax-highlighter/index.d.ts": [
+        "./node_modules/@types/react-syntax-highlighter/index.d.ts",
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/react-textarea-autosize/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/yargs/index.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "./node_modules/@types/react/index.d.ts": [
+        "./node_modules/csstype/index.d.ts",
+        "./node_modules/@types/prop-types/index.d.ts",
+        "./node_modules/@types/react/global.d.ts"
+      ],
+      "./node_modules/@types/react-textarea-autosize/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/react-syntax-highlighter/index.d.ts": [
+        "./node_modules/@types/react-syntax-highlighter/index.d.ts",
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/react-dom/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/reach__router/index.d.ts": [
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/iconcontext.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/index.d.ts": [
+        "./node_modules/react-icons/lib/cjs/iconsmanifest.d.ts",
+        "./node_modules/react-icons/lib/cjs/iconbase.d.ts",
+        "./node_modules/react-icons/lib/cjs/iconcontext.d.ts"
+      ],
+      "./node_modules/react-icons/md/index.d.ts": [
+        "./node_modules/react-icons/lib/cjs/index.d.ts"
+      ],
+      "./node_modules/react-icons/lib/cjs/iconbase.d.ts": [
+        "./node_modules/@types/react/index.d.ts"
+      ],
+      "./node_modules/@types/classnames/index.d.ts": [
+        "./node_modules/@types/classnames/types.d.ts"
+      ],
+      "./node_modules/@types/babylon/index.d.ts": [
+        "./node_modules/@types/babel-types/index.d.ts"
+      ],
+      "./node_modules/@types/history/createbrowserhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/history/index.d.ts": [
+        "./node_modules/@types/history/createbrowserhistory.d.ts",
+        "./node_modules/@types/history/createhashhistory.d.ts",
+        "./node_modules/@types/history/creatememoryhistory.d.ts",
+        "./node_modules/@types/history/locationutils.d.ts",
+        "./node_modules/@types/history/pathutils.d.ts"
+      ],
+      "./node_modules/@types/history/pathutils.d.ts": [
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/@types/history/locationutils.d.ts": [
+        "./node_modules/@types/history/index.d.ts"
+      ],
+      "./node_modules/@types/history/creatememoryhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/history/createhashhistory.d.ts": [
+        "./node_modules/@types/history/index.d.ts",
+        "./node_modules/@types/history/domutils.d.ts"
+      ],
+      "./node_modules/@types/istanbul-reports/index.d.ts": [
+        "./node_modules/@types/istanbul-lib-report/index.d.ts",
+        "./node_modules/@types/istanbul-lib-coverage/index.d.ts"
+      ],
+      "./node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "./node_modules/@types/istanbul-lib-coverage/index.d.ts"
+      ],
+      "./node_modules/@types/yargs/index.d.ts": [
+        "./node_modules/@types/yargs-parser/index.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "./src/declaration.d.ts",
+      "./node_modules/@types/react/global.d.ts",
+      "./node_modules/csstype/index.d.ts",
+      "./node_modules/@types/prop-types/index.d.ts",
+      "./node_modules/@types/react/index.d.ts",
+      "./src/components/menubar/const.ts",
+      "./node_modules/@types/classnames/types.d.ts",
+      "./node_modules/@types/classnames/index.d.ts",
+      "./node_modules/react-icons/lib/cjs/iconsmanifest.d.ts",
+      "./node_modules/react-icons/lib/cjs/iconbase.d.ts",
+      "./node_modules/react-icons/lib/cjs/iconcontext.d.ts",
+      "./node_modules/react-icons/lib/cjs/index.d.ts",
+      "./node_modules/react-icons/md/index.d.ts",
+      "./src/polyfill/customevent.ts",
+      "./src/components/menubar/menuelement/index.tsx",
+      "./src/components/menubar/menutopelement/index.tsx",
+      "./src/components/menubar/index.tsx",
+      "./src/components/index.ts",
+      "./src/index.ts",
+      "./src/polyfill/event.ts",
+      "./node_modules/@types/babel-types/index.d.ts",
+      "./node_modules/@types/babylon/index.d.ts",
+      "./node_modules/@types/color-name/index.d.ts",
+      "./node_modules/@types/eslint-visitor-keys/index.d.ts",
+      "./node_modules/@types/history/domutils.d.ts",
+      "./node_modules/@types/history/createbrowserhistory.d.ts",
+      "./node_modules/@types/history/createhashhistory.d.ts",
+      "./node_modules/@types/history/creatememoryhistory.d.ts",
+      "./node_modules/@types/history/locationutils.d.ts",
+      "./node_modules/@types/history/pathutils.d.ts",
+      "./node_modules/@types/history/index.d.ts",
+      "./node_modules/@types/is-function/index.d.ts",
+      "./node_modules/@types/istanbul-lib-coverage/index.d.ts",
+      "./node_modules/@types/istanbul-lib-report/index.d.ts",
+      "./node_modules/@types/istanbul-reports/index.d.ts",
+      "./node_modules/@types/json-schema/index.d.ts",
+      "./node_modules/@types/parse-json/index.d.ts",
+      "./node_modules/@types/q/index.d.ts",
+      "./node_modules/@types/reach__router/index.d.ts",
+      "./node_modules/@types/react-dom/index.d.ts",
+      "./node_modules/@types/react-syntax-highlighter/index.d.ts",
+      "./node_modules/@types/react-textarea-autosize/index.d.ts",
+      "./node_modules/@types/stack-utils/index.d.ts",
+      "./node_modules/@types/unist/index.d.ts",
+      "./node_modules/@types/webpack-env/index.d.ts",
+      "./node_modules/@types/yargs-parser/index.d.ts",
+      "./node_modules/@types/yargs/index.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.d.ts",
+      "./node_modules/typescript/lib/lib.es2016.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.full.d.ts",
+      "./node_modules/typescript/lib/lib.es5.d.ts",
+      "./node_modules/typescript/lib/lib.dom.d.ts",
+      "./node_modules/typescript/lib/lib.dom.iterable.d.ts",
+      "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "./node_modules/typescript/lib/lib.scripthost.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "./node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "./node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "./node_modules/typescript/lib/lib.es2018.regexp.d.ts"
+    ]
+  },
+  "version": "3.7.4"
+}

@@ -13,7 +13,7 @@ import {
   AllowedHDirection,
   menuTopElementHorizontalEvent,
 } from '../const'
-import PolyCustomEvent from '../../polyfill/CustomEvent'
+import PolyCustomEvent from '../../../polyfill/CustomEvent'
 
 export interface MenuElementDef {
   /**

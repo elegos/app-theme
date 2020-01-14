@@ -1,11 +1,11 @@
-export const menuCloseEvent = 'app-theme.MenuBar.Close'
+export const menuCloseEvent = 'app-theme.components.MenuBar.Close'
 
-export const menuElementMouseEnterEvent = 'app-theme.MenuBar.MenuElement.MouseEnter'
+export const menuElementMouseEnterEvent = 'app-theme.components.MenuBar.MenuElement.MouseEnter'
 export interface MenuElementMouseEnterDetail {
   path: string
 }
 
-export const menuTopElementHorizontalEvent = 'app-theme.MenuBar.MenuTopElement.MoveHorizontal'
+export const menuTopElementHorizontalEvent = 'app-theme.components.MenuBar.MenuTopElement.MoveHorizontal'
 export interface MenuTopElementHorizontalDetail {
   direction: Direction
 }

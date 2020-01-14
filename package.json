@@ -1,18 +1,27 @@
 {
   "name": "app-theme",
-  "version": "1.0.0",
-  "description": "React components for app development",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "React components for in-browser app development",
+  "keywords": ["react", "theme", "application", "ui"],
+  "author": {
+    "name": "Giacomo 'Mr. Wolf' Furlan",
+    "url": "https://github.com/elegos"
+  },
+  "license": "MIT",
+  "files": ["lib/**/*"],
+  "main": "lib/index.js",
   "scripts": {
     "build": "ttsc",
     "storybook": "start-storybook",
     "storybook-build": "build-storybook -c .storybook -o storybook",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
   },
-  "author": "Giacomo 'Mr. Wolf' Furlan",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elegos/app-theme.git"
+  },
   "dependencies": {
-    "@types/classnames": "^2.2.9",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -26,6 +35,7 @@
     "@storybook/addon-docs": "^5.3.1",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.2.8",
+    "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
