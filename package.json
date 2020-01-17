@@ -2,13 +2,20 @@
   "name": "app-theme",
   "version": "0.0.1",
   "description": "React components for in-browser app development",
-  "keywords": ["react", "theme", "application", "ui"],
+  "keywords": [
+    "react",
+    "theme",
+    "application",
+    "ui"
+  ],
   "author": {
     "name": "Giacomo 'Mr. Wolf' Furlan",
     "url": "https://github.com/elegos"
   },
   "license": "MIT",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "build": "ttsc",
@@ -32,27 +39,27 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@storybook/addon-docs": "^5.3.1",
+    "@storybook/addon-docs": "^5.3.6",
     "@storybook/preset-scss": "^1.0.2",
-    "@storybook/react": "^5.2.8",
+    "@storybook/react": "^5.3.6",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.1",
+    "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^6.3.1",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.15.1",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "fork-ts-checker-webpack-plugin": "^3.1.1",
-    "node-sass": "^4.13.0",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "fork-ts-checker-webpack-plugin": "^4.0.1",
+    "node-sass": "^4.13.1",
     "react-docgen-typescript-loader": "^3.6.0",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^8.0.2",
     "ts-loader": "^6.2.1",
     "ttypescript": "^1.5.10",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   }
 }

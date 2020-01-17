@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 - components/MenuBar: do not close menu if clicking on a non-action menu element with sub-menu
+- update npm dependencies
 
 ### [0.0.1] - 2020-01-14
 #### Added
