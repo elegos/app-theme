@@ -116,6 +116,10 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
       keepOpen = onOuterClick(event)
     }
 
+    if (!onClick && !!element.subElements?.length) {
+      return
+    }
+
     if (!element.subElements?.length && onClick) {
       const onClickResult = onClick(event)
       keepOpen = keepOpen || onClickResult
