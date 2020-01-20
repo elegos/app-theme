@@ -10,6 +10,8 @@ export interface MenuTopElementHorizontalDetail {
   direction: Direction
 }
 
+export const menuTopElementSwitchEvent = 'app-theme.components.MenuBar.MenuTopElement.SwitchElement'
+
 export enum Direction {
   Down = 'ArrowDown',
   Left = 'ArrowLeft',

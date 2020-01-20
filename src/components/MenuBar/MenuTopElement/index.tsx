@@ -10,7 +10,9 @@ import {
   AllowedVDirection,
   menuTopElementHorizontalEvent,
   MenuTopElementHorizontalDetail,
+  menuTopElementSwitchEvent,
 } from '../const'
+import PolyEvent from '../../../polyfill/Event'
 
 export interface MenuItem {
   /**
@@ -79,11 +81,15 @@ const MenuTopElement: React.FunctionComponent<MenuTopElementProps> = (props: Men
   }
 
   const onMouseEnter = (): void => {
-    if (currentMenuIndex === -1) {
+    if (currentMenuIndex === -1 || tabIndex === currentMenuIndex) {
       return
     }
 
     changeMenuIndex(tabIndex)
+    const topParent = selfRef.current?.closest('.MenuBar')
+    if (topParent) {
+      topParent.dispatchEvent(PolyEvent(menuTopElementSwitchEvent))
+    }
   }
 
   const onKeyDown = onGenericKeyDown(

@@ -14,8 +14,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### Unreleased
+### [0.0.2] - 2020-01-20
 - components/MenuBar: do not close menu if clicking on a non-action menu element with sub-menu
+- components/MenuBar: pressing <kbd>Esc</kbd> closes the menu
+- components/MenuBar: switching the top elements closes all the opened submenues
 - update npm dependencies
 
 ### [0.0.1] - 2020-01-14

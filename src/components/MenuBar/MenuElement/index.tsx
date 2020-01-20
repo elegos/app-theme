@@ -12,6 +12,7 @@ import {
   AllowedVDirection,
   AllowedHDirection,
   menuTopElementHorizontalEvent,
+  menuTopElementSwitchEvent,
 } from '../const'
 import PolyCustomEvent from '../../../polyfill/CustomEvent'
 
@@ -78,6 +79,23 @@ const MenuElement: React.FunctionComponent<MenuElementProps> = (props: MenuEleme
   const [closeTimeout, setCloseTimeout] = useState<number>(-1)
   const selfRef = useRef<HTMLDivElement>(null)
   const ownPath = `${parentPath}.${element.name}`
+
+  useEffect((): () => void => {
+    if (!selfRef.current || !element.subElements?.length) {
+      return (): void => {}
+    }
+
+    const onTopMenuSwtich = (): void => {
+      setOpen(false)
+    }
+
+    const topParent = selfRef.current.closest('.MenuBar')
+    topParent?.addEventListener(menuTopElementSwitchEvent, onTopMenuSwtich)
+
+    return (): void => {
+      topParent?.removeEventListener(menuTopElementSwitchEvent, onTopMenuSwtich)
+    }
+  }, [element])
 
   useEffect((): () => void => {
     const menuCloseListener = (): void => {

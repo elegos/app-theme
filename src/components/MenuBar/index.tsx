@@ -7,6 +7,7 @@ import './MenuBar.scss'
 
 import { menuCloseEvent } from './const'
 import MenuTopElement, { MenuItem, MenuItemProps } from './MenuTopElement'
+import PolyEvent from '../../polyfill/Event'
 
 export interface MenuProps {
   /**
@@ -36,14 +37,25 @@ const MenuBar: React.FunctionComponent<MenuProps> = (props: MenuProps): ReactEle
       }
     }
 
+    const onDocKeyDown = (event: KeyboardEvent): void => {
+      // Not escape
+      if (event.keyCode !== 27 || currentMenuIndex === -1) {
+        return
+      }
+
+      document.dispatchEvent(PolyEvent(menuCloseEvent))
+    }
+
     document.addEventListener(menuCloseEvent, onMenuClose as EventListener)
     document.addEventListener('click', onDocClick)
+    document.addEventListener('keydown', onDocKeyDown)
 
     return (): void => {
       document.removeEventListener(menuCloseEvent, onMenuClose as EventListener)
       document.removeEventListener('click', onDocClick)
+      document.removeEventListener('keydown', onDocKeyDown)
     }
-  }, [])
+  }, [currentMenuIndex])
 
   const changeMenuIndex = (index: number): void => {
     if (currentMenuIndex === index) {
