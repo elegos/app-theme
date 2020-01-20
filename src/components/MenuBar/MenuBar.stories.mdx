@@ -53,6 +53,46 @@ import MenuElement from './MenuElement'
   </Story>
 </Preview>
 
+## Main features
+
+- Click on a top element to open the menu
+- Use the mouse or the keyboard arrows to navigate the menu and sub-menues
+- Click outside or press <kbd>Esc</kbd> to close the menu
+
+## Main CSS classes
+
+See `src/components/MenuBar/MenuBar.scss` for a complete list of classes
+
+<table>
+  <thead>
+    <th>Class selector</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+    <tr><td>.MenuBar</td><td>the whole menu</td></tr>
+    <tr><td>.MenuBar .MenuItem</td><td>the top elements</td></tr>
+    <tr><td>.MenuBar .MenuItem .MenuElements</td><td>the menu elements container (both for main and sub-menues)</td></tr>
+    <tr><td>.MenuBar .MenuItem .MenuElements .MenuElement</td><td>the single menu element</td></tr>
+    <tr>
+      <td>.MenuBar .MenuItem .MenuElements .MenuElement .ElementText</td>
+      <td>The menu item text part</td>
+    </tr>
+    <tr>
+      <td>.MenuBar .MenuItem .MenuElements .MenuElement .SubElementsPre</td>
+      <td>The menu item part before the text</td>
+    </tr>
+    <tr>
+      <td>.MenuBar .MenuItem .MenuElements .MenuElement .SubElementsPost</td>
+      <td>The menu item part after the text</td>
+    </tr>
+    <tr>
+      <td>.MenuBar .MenuItem .MenuElements .MenuElement .ElementText</td>
+      <td></td>
+    </tr>
+    <tr><td>.MenuBar .MenuItem .MenuElements hr.Separator</td><td>The menu separator element</td></tr>
+  </tbody>
+</table>
+
 ### MenuBar props
 <Props of={MenuBar} />
 
